@@ -14,11 +14,12 @@ RUN mkdir -p /data/db /data/configdb \
 
 RUN [ "cross-build-end" ]
 
-VOLUME /data/db /data/configdb
+# Define mountable directories.
+VOLUME ["/data/db","/data/configdb"]
 
 WORKDIR /data
 
 EXPOSE 27017
 EXPOSE 28017
 
-CMD ["mongod","--repair","--journal","--smallfiles","--rest"]
+CMD ["mongod","--journal","--smallfiles"]
