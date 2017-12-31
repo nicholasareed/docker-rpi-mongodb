@@ -21,4 +21,4 @@ WORKDIR /data
 EXPOSE 27017
 EXPOSE 28017
 
-CMD ["mongod","--rest"]
+CMD ["mongod","--repair","--journal","--smallfiles","--rest"]
